@@ -12,7 +12,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["var(--font-sans)", ...fontFamily.sans],
+                sans: ["var(--font-roboto-sans)", ...fontFamily.sans],
+                mono: ["var(--font-roboto-mono)", ...fontFamily.mono],
             },
             colors: {
                 background: 'hsl(var(--background))',
