@@ -47,7 +47,7 @@ export const createProject = async (values: z.infer<typeof CreateProjectSchema>)
 
         revalidatePath("/dashboard");
         return { success: "Project created" };
-    } catch (error) {
+    } catch {
         return { error: "Failed to create project" };
     }
 }

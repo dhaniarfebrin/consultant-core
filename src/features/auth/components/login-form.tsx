@@ -18,7 +18,6 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
@@ -27,7 +26,6 @@ import { useState, useTransition } from "react";
 
 export const LoginForm = () => {
     const [error, setError] = useState<string | undefined>("");
-    const [success, setSuccess] = useState<string | undefined>("");
     const [isPending, startTransition] = useTransition();
 
     const form = useForm<z.infer<typeof LoginSchema>>({
@@ -40,7 +38,6 @@ export const LoginForm = () => {
 
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
         setError("");
-        setSuccess("");
 
         startTransition(() => {
             login(values).then((data) => {

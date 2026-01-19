@@ -12,10 +12,6 @@ import { authConfig } from "./auth.config";
 //    Ini dipakai ketika kita mau user login dengan Email & Password sendiri (bukan via Google/GitHub).
 import Credentials from "next-auth/providers/credentials";
 
-// 4. Zod: Library validasi data. Kita pakai untuk memastikan input user (email & password)
-//    formatnya benar sebelum kita coba cek ke database.
-import { z } from "zod";
-
 // 5. Prisma Client (db): ORM yang kita pakai untuk query ke database.
 //    Di sini dipakai untuk mencari data user berdasarkan email.
 import { db } from "@/lib/db";
