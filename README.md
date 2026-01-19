@@ -24,18 +24,21 @@ Designed to be a lightweight, high-performance alternative to Jira/Linear, built
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/your-username/consultant-core.git
    cd consultant-core
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Environment Setup**
    Create a `.env` file in the root directory:
+
    ```env
    # Database connection string
    DATABASE_URL="postgresql://user:password@localhost:5432/consultant_core"
@@ -46,12 +49,14 @@ Designed to be a lightweight, high-performance alternative to Jira/Linear, built
 
 4. **Database Setup**
    Initialize the database schema:
+
    ```bash
    npx prisma generate
    npx prisma db push
    ```
 
 5. **Run the development server**
+
    ```bash
    npm run dev
    ```
@@ -94,7 +99,30 @@ src/
         └── ...
 ```
 
-## 🔑 Key Features Implementation
+## � Dokumentasi Walkthrough
+
+Panduan langkah demi langkah untuk memahami dan mengembangkan proyek ini:
+
+- **[01. Setup & Architecture](walkthrough/01-setup-and-architecture.md)**: Instalasi awal dan penjelasan struktur folder feature-based.
+- **[02. Database & Prisma](walkthrough/02-database-prisma.md)**: Konfigurasi PostgreSQL, skema Prisma, dan migrasi.
+- **[03. Authentication](walkthrough/03-authentication.md)**: Implementasi login/register dengan NextAuth v5.
+- **[04. Projects Feature](walkthrough/04-projects-feature.md)**: Pembuatan fitur CRUD Project (Server Actions, UI).
+- **[05. Unit Testing](walkthrough/05-unit-testing.md)**: Setup dan contoh testing dengan Vitest & React Testing Library.
+- **[06. Quality Standards](walkthrough/06-quality-standards.md)**: Standar kode, linter, dan pre-commit hooks.
+
+## 🛡️ Quality Standards & Development Tools
+
+Proyek ini dilengkapi dengan _tooling_ modern untuk memastikan kualitas kode dan kemudahan development:
+
+- **Strict Linting**: Menggunakan **ESLint** dengan konfigurasi ketat untuk menghindari _common mistakes_ (misal: `no-console`, `no-explicit-any`).
+- **Code Conventions**: Penamaan variabel/fungsi (`camelCase`) dan komponen/tipe (`PascalCase`) dipaksakan oleh linter.
+- **Pre-commit Hooks**: Terintegrasi dengan **simple-git-hooks** dan **lint-staged**.
+  - Setiap kali Anda melakukan `git commit`, linter akan berjalan otomatis hanya pada file yang berubah.
+  - Mencegah kode yang "kotor" masuk ke dalam repository.
+- **Unit Testing**: Framework **Vitest** sudah terpasang untuk menjalankan pengujian unit dan komponen dengan cepat.
+  - Jalankan test: `npm test`
+
+## �🔑 Key Features Implementation
 
 - **Server Actions**: Used for all data mutations (Project creation, Login) to ensure type safety and reduced client-side Javascript.
 - **Optimistic UI**: Implemented in features where immediate feedback is crucial.
