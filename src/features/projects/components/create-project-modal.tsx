@@ -14,18 +14,13 @@ import {
 } from "@/components/ui/dialog";
 import {
     Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { createProject } from "@/features/projects/actions";
 import { useState, useTransition } from "react";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { FieldInput } from "@/components/form/field-input";
 
 export const CreateProjectModal = () => {
     const [open, setOpen] = useState(false);
@@ -70,32 +65,21 @@ export const CreateProjectModal = () => {
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                        <FormField
+                        <FieldInput
                             control={form.control}
                             name="name"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Project Name</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="My Awesome Project" disabled={isPending} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
+                            label="Project Name"
+                            placeholder="My Awesome Project"
+                            disabled={isPending}
                         />
-                        <FormField
+                        <FieldInput
                             control={form.control}
                             name="description"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Description</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="Optional description" disabled={isPending} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
+                            label="Description"
+                            placeholder="Optional description"
+                            disabled={isPending}
                         />
+
                         <div className="flex justify-end">
                             <Button type="submit" disabled={isPending}>
                                 {isPending ? "Creating..." : "Create Project"}
