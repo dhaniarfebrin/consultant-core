@@ -27,23 +27,19 @@ export const authConfig = {
             // !!auth?.user akan bernilai true jika user ada, dan false jika tidak.
             const isLoggedIn = !!auth?.user;
 
-            // Mengecek apakah user sedang mencoba mengakses halaman yang diawali "/dashboard".
-            // nextUrl.pathname berisi path URL yang sedang dikunjungi.
-            const isOnDashboard = nextUrl.pathname.startsWith("/dashboard");
+            const protectedRoutes = ["/dashboard", "/projects", "/tasks", "/settings"];
+            const isProtectedRoute = protectedRoutes.some(route => nextUrl.pathname.startsWith(route));
 
-            if (isOnDashboard) {
-                // Skenario 1: User mau masuk Dashboard.
-                // Jika sudah login (isLoggedIn = true), return true (IZINKAN akses).
+            if (isProtectedRoute) {
                 if (isLoggedIn) return true;
-                
-                // Jika belum login, return false.
-                // NextAuth akan otomatis me-redirect user ke halaman login (pages.signIn di atas).
-                return false; 
+                return false; // Redirect to login
             } else if (isLoggedIn) {
-                // Skenario 2: User SUDAH login, tapi berada di halaman publik (misal halaman login atau home).
-                // Kita redirect mereka langsung masuk ke Dashboard agar UX lebih bagus.
-                // Response.redirect akan memindahkan user ke URL baru.
-                return Response.redirect(new URL("/dashboard", nextUrl));
+                // If user is logged in and on a public page (like login or home), redirect to dashboard
+                // But allow other paths if they are not explicitly protected but valid (though we might not have many yet)
+                // For now, let's just redirect from root and login
+                if (nextUrl.pathname === "/" || nextUrl.pathname.startsWith("/login")) {
+                    return Response.redirect(new URL("/dashboard", nextUrl));
+                }
             }
 
             // Skenario 3: User belum login dan mengakses halaman publik.

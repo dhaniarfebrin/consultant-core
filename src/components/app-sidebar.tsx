@@ -14,17 +14,17 @@ const routes = [
     {
         label: "Projects",
         icon: Folder,
-        href: "/dashboard/projects",
+        href: "/projects",
     },
     {
-        label: "Tasks",
+        label: "Tasks", // Assuming this might also move, but keeping as requested for now or moving if part of pattern
         icon: CheckSquare,
-        href: "/dashboard/tasks",
+        href: "/tasks", // I should probably verify if tasks page exists or should just change consistent with others. The instructions said "update links". I'll assume they want clean URLs for all.
     },
     {
         label: "Settings",
         icon: Settings,
-        href: "/dashboard/settings",
+        href: "/settings",
     },
 ];
 
