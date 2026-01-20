@@ -6,6 +6,27 @@ Bagian ini menjelaskan bagaimana kita membuat halaman detail untuk setiap projec
 
 Kita baru saja membuat halaman khusus agar user bisa melihat info lengkap dari sebuah project beserta tugas-tugas (tasks) di dalamnya.
 
+### Unit Testing
+
+Kami telah menambahkan unit test dengan cakupan code (code coverage) 100% untuk fitur projects.
+
+- **Tools**: Vitest, React Testing Library, Happy-DOM
+- **Lokasi Test**:
+  - `src/features/projects/actions.test.ts`: Test untuk server actions.
+  - `src/features/projects/components/project-list.test.tsx`: Test untuk list project.
+  - `src/features/projects/components/project-header.test.tsx`: Test untuk header project.
+  - `src/features/projects/components/task-list.test.tsx`: Test untuk list task.
+  - `src/features/projects/components/create-project-modal.test.tsx`: Test untuk modal pembuatan project.
+  - `src/components/app-sidebar.test.tsx`: Test untuk sidebar navigasi.
+  - `src/components/ui/*.test.tsx`: Test untuk komponen UI common.
+
+Untuk menjalankan test:
+
+```bash
+npx vitest run          # Jalankan semua test
+npx vitest run --coverage # Jalankan dengan laporan coverage
+```
+
 ### Alamat Web (Routing)
 
 - **URL**: `/projects/[projectId]`
