@@ -15,10 +15,12 @@ Kami telah menambahkan unit test dengan cakupan code (code coverage) 100% untuk 
   - `src/features/projects/actions.test.ts`: Test untuk server actions.
   - `src/features/projects/components/project-list.test.tsx`: Test untuk list project.
   - `src/features/projects/components/project-header.test.tsx`: Test untuk header project.
-  - `src/features/projects/components/task-list.test.tsx`: Test untuk list task.
+  - `src/features/tasks/components/task-list.test.tsx`: Test untuk list task.
   - `src/features/projects/components/create-project-modal.test.tsx`: Test untuk modal pembuatan project.
   - `src/components/app-sidebar.test.tsx`: Test untuk sidebar navigasi.
-  - `src/components/ui/*.test.tsx`: Test untuk komponen UI common.
+  - `src/components/ui/button.test.tsx`: Test untuk komponen Button.
+  - `src/components/ui/card.test.tsx`: Test untuk komponen Card.
+  - `src/components/ui/input.test.tsx`: Test untuk komponen Input.
 
 Untuk menjalankan test:
 

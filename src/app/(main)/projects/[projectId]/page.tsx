@@ -2,7 +2,7 @@
 import { auth } from "@/auth";
 import { getProject } from "@/features/projects/actions";
 import { ProjectHeader } from "@/features/projects/components/project-header";
-import { TaskList } from "@/features/projects/components/task-list";
+import { TaskList } from "@/features/tasks/components/task-list";
 import { notFound, redirect } from "next/navigation";
 
 interface ProjectDetailPageProps {
